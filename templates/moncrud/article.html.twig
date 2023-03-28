@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MoncrudController!{% endblock %}
+
+{% block body %}
+<table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.Titre }}</td>
+                <td>{{ article.Description }}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+<a href="{{path('app_article')}}">Créer un article</a>
+{% endblock %}

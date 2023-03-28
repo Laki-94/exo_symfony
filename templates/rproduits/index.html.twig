@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rproduits index{% endblock %}
+
+{% block body %}
+    <h1>Rproduits index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rproduit in rproduits %}
+            <tr>
+                <td>{{ rproduit.id }}</td>
+                <td>{{ rproduit.Nom }}</td>
+                <td>{{ rproduit.Description }}</td>
+                <td>{{ rproduit.Prix }}</td>
+                <td>
+                    <a href="{{ path('app_rproduits_show', {'id': rproduit.id}) }}">show</a>
+                    <a href="{{ path('app_rproduits_edit', {'id': rproduit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_rproduits_new') }}">Create new</a>
+{% endblock %}

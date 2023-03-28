@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acategorie index{% endblock %}
+
+{% block body %}
+    <h1>Acategorie index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for acategorie in acategories %}
+            <tr>
+                <td>{{ acategorie.id }}</td>
+                <td>
+                    <a href="{{ path('app_acategorie_show', {'id': acategorie.id}) }}">show</a>
+                    <a href="{{ path('app_acategorie_edit', {'id': acategorie.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_acategorie_new') }}">Create new</a>
+{% endblock %}

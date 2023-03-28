@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MoncrudController!{% endblock %}
+
+{% block body %}
+<table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for articles in article %}
+            <tr>
+                <td>{{ articles.id }}</td>
+                <td>{{ articles.Titre }}</td>
+                <td>{{ articles.Description }}</td>
+                
+            </tr>
+        
+        {% endfor %}
+        </tbody>
+    </table>
+<a href="{{path('route_new')}}">Créer un article</a>
+{% endblock %}
